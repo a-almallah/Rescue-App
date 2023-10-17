@@ -24,7 +24,8 @@ import time
 import linecache
 import datetime
 import errno
-from PyQt5 import QtGui, QtCore, QtWebKit, QtWidgets, QtWebKitWidgets
+from PyQt5 import QtGui, QtCore, QtWidgets
+from PyQt5.QtWebEngineWidgets import QWebEngineView
 from functools import partial
 from enum import Enum, IntEnum
 
@@ -524,7 +525,7 @@ class MainWindow(QtWidgets.QWidget):
         self.help_btn.setToolTip(help_support_option.getDescription())
         self.help_btn.setIcon(QtGui.QIcon(support_icon_path))
 
-        self.wb = QtWebKitWidgets.QWebView()
+        self.wb = QWebEngineView()
         self.wb.load(url)
 
         grid = QtWidgets.QGridLayout()
@@ -1086,5 +1087,3 @@ if __name__ == '__main__':
     mw.show()
 
     sys.exit(app_rescapp.exec_())
-
-
